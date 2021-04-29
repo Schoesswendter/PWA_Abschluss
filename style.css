@@ -1,0 +1,27 @@
+body {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+h1 {
+  background-image: linear-gradient(
+    to left,
+    violet,
+    indigo,
+    blue,
+    green,
+    yellow,
+    orange,
+    red
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+img {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
