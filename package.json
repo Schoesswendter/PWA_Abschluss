@@ -4,12 +4,15 @@
   "description": "This example is so cool.",
   "main": "script.js",
   "scripts": {
-    "start": "serve"
+    "start": "node server.js"
   },
   "keywords": [
     "example",
     "heroku"
   ],
   "author": "jane-doe",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
