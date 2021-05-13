@@ -1,1 +1,15 @@
-{}
+{
+  "name": "pwa-michaela",
+  "version": "1.0.0",
+  "description": "This example is so cool.",
+  "main": "script.js",
+  "scripts": {
+    "start": "serve"
+  },
+  "keywords": [
+    "example",
+    "heroku"
+  ],
+  "author": "jane-doe",
+  "license": "MIT"
+}
