@@ -78,9 +78,3 @@ navigator.serviceWorker.addEventListener("controllerchange", () => {
   refreshing = true;
   window.location.reload(true);
 });
-
-async function getjoke() {
-  await fetch('https://icanhazdadjoke.com/')
-  .then(response => response.json())
-  .then(data => console.log(data));
-}

@@ -7,7 +7,7 @@
     "start": "node server.js"
   },
   "keywords": [
-    "example",
+    "pwa",
     "heroku"
   ],
   "author": "jane-doe",
