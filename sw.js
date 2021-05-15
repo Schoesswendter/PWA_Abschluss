@@ -65,8 +65,15 @@ self.addEventListener("fetch", (event) => {
   //self.skipWaiting();
 });
 
-self.addEventListener("message", function (event) {
-  if (event.data === "skipWaiting") {
-    self.skipWaiting();
-  }
+self.addEventListener('message', event => {
+  // console.log(`[Message] event: `, event);
+  clients.matchAll().then(clients => {
+      clients.forEach(client => {
+          client.postMessage({
+              joke: event.data.joke,
+              value: event.data.value,
+              counter: event.data.counter
+          });
+      })
+  })
 });
