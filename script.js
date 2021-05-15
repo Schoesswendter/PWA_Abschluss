@@ -57,7 +57,7 @@ const showUpdateButton = (reg) => {
   if (reg) {
     let button = document.querySelector("#update");
     button.addEventListener("click", () => {
-      reg.waiting.postMessage("skipWaiting");
+      reg.update();
     });
     button.style.display = "inline";
   }
