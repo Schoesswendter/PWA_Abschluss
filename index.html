@@ -5,36 +5,63 @@
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Dad jokes</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="/manifest.json">
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="/manifest.json" />
+    <script src="./getjokes.js" type="module"></script>
   </head>
   <body>
     <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
     <![endif]-->
     <h1>Dad jokes. Wow nice! That's great dude!</h1>
+    <div id="dadjokes">
+      <div id="joke1"><p>How do you find Will Smith in the snow? Look for fresh prints.</p><p class="counter">0</p><div class="thumbsup"></div><div class="thumbsdown"></div><button class="newjoke">New Joke!</button></div>
+      <div id="joke2"><p>Did you hear about the submarine industry? It really took a dive...</p><p class="counter">0</p><div class="thumbsup"></div><div class="thumbsdown"></div><button class="newjoke">New Joke!</button></div>
+      <div id="joke3"><p>What do you call a factory that sells passable products? A satisfactory.</p><p class="counter">0</p><div class="thumbsup"></div><div class="thumbsdown"></div><button class="newjoke">New Joke!</button></div>
+      <div id="joke4"><p>Never take advice from electrons. They are always negative.</p><p class="counter">0</p><div class="thumbsup"></div><div class="thumbsdown"></div><button class="newjoke">New Joke!</button></div>
+      <div id="joke5"><p>What did the ocean say to the shore? Nothing, it just waved.</p><p class="counter">0</p><div class="thumbsup"></div><div class="thumbsdown"></div><button class="newjoke">New Joke!</button></div>
+    </div>
 
-    <button id="butInstall" type="button">
-      Install
-    </button>
+    <div class="buttons">
+      <button id="butInstall" type="button">Install</button>
+  
+      <button id="butSend" type="button">Send</button>
+  
+      <button id="update" style="display: none">Update</button>
+    </div>
 
-      <button id="butSend" type="button">
-        Send
-      </button>
 
-        <button id="update" style="display:none">
-          Update
-        </button>
+    <iframe
+      src="https://giphy.com/embed/l49K1VipVWXZTDe5W"
+      width="480"
+      height="480"
+      frameborder="0"
+      class="giphy-embed"
+      allowfullscreen
+    ></iframe>
+    <p>
+      <a href="https://giphy.com/gifs/hug-sleep-dolphin-l49K1VipVWXZTDe5W"
+        >via GIPHY</a
+      >
+    </p>
 
-        <iframe src="https://giphy.com/embed/l49K1VipVWXZTDe5W" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/hug-sleep-dolphin-l49K1VipVWXZTDe5W">via GIPHY</a></p>
-
-        <iframe src="https://giphy.com/embed/yNF0XKi2ZLuow" width="319" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/jesus-yNF0XKi2ZLuow">via GIPHY</a></p>    
+    <iframe
+      src="https://giphy.com/embed/yNF0XKi2ZLuow"
+      width="319"
+      height="480"
+      frameborder="0"
+      class="giphy-embed"
+      allowfullscreen
+    ></iframe>
+    <p><a href="https://giphy.com/gifs/jesus-yNF0XKi2ZLuow">via GIPHY</a></p>
     <script src="/script.js" async defer></script>
-    <script src="./getjokes.js" type="module"></script>
   </body>
 </html>

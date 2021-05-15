@@ -26,7 +26,49 @@ async function postData(url = '', data = {}) {
   return response.json(); // parses JSON response into native JavaScript objects
 }
 
-postData('https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/jokes/5')
+function getNewJoke() {
+  postData('https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/jokes/5')
   .then(data => {
     console.log(data); // JSON data parsed by `data.json()` call
+    var jokewrapper = document.getElementById("dadjokes")
+    data.forEach(function(element) {
+      console.log(element)
+      let pelement = jokewrapper.appendChild(document.createElement('p'))
+      pelement.innerHTML = element["setup"] + " " + element["punchline"]
+
+    });
+
   });
+}
+
+let thumbsUps = document.getElementsByClassName("thumbsup")
+for (let item of thumbsUps) {
+  item.addEventListener('click', function(){ 
+    let parent = this.parentNode
+    let counter = parent.getElementsByClassName('counter')[0]
+    counter.innerHTML = parseInt(counter.innerHTML) + 1
+    
+    if(counter.innerHTML > 0) {
+      counter.style.color = "rgb(4, 230, 4)";
+    }
+    if(counter.innerHTML == 0) {
+      counter.style.color = "black";
+    }
+  })
+}
+
+let thumbsDowns = document.getElementsByClassName("thumbsdown")
+for (let item of thumbsDowns) {
+  item.addEventListener('click', function(){ 
+    let parent = this.parentNode
+    let counter = parent.getElementsByClassName('counter')[0]
+    counter.innerHTML = parseInt(counter.innerHTML) - 1
+
+    if(counter.innerHTML < 0) {
+      counter.style.color = "red";
+    }
+    if(counter.innerHTML == 0) {
+      counter.style.color = "black";
+    }
+  })
+}
