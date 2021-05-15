@@ -26,19 +26,13 @@ async function postData(url = '', data = {}) {
   return response.json(); // parses JSON response into native JavaScript objects
 }
 
-function getNewJoke() {
-  postData('https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/jokes/5')
+async function getNewJoke() {
+  let returndata = await postData('https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/jokes')
   .then(data => {
     console.log(data); // JSON data parsed by `data.json()` call
-    var jokewrapper = document.getElementById("dadjokes")
-    data.forEach(function(element) {
-      console.log(element)
-      let pelement = jokewrapper.appendChild(document.createElement('p'))
-      pelement.innerHTML = element["setup"] + " " + element["punchline"]
-
-    });
-
+    return data;
   });
+  return returndata;
 }
 
 let thumbsUps = document.getElementsByClassName("thumbsup")
@@ -70,5 +64,20 @@ for (let item of thumbsDowns) {
     if(counter.innerHTML == 0) {
       counter.style.color = "black";
     }
+  })
+}
+
+let newJokes = document.getElementsByClassName("newjoke")
+for (let item of newJokes) {
+  item.addEventListener('click', function(){ 
+    let parent = this.parentNode
+    let joke = parent.getElementsByClassName('joke')[0]
+    let counter = parent.getElementsByClassName('counter')[0]
+    counter.innerHTML = 0
+    counter.style.color = "black";
+
+    let newjoke = getNewJoke()
+    .then(response => joke.innerHTML = response['setup'] + " " + response['punchline']);;
+    
   })
 }
