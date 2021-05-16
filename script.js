@@ -240,7 +240,7 @@ function initializeUI() {
   pushButton.addEventListener('click', function() {
     pushButton.disabled = true;
     if (isSubscribed) {
-      // TODO: Unsubscribe user
+      unsubscribeUser();
     } else {
       subscribeUser();
     }
@@ -258,6 +258,7 @@ function initializeUI() {
     } else {
       console.log('User is NOT subscribed.');
     }
+    updateBtn();
   });
 }
 
@@ -273,10 +274,31 @@ function subscribeUser() {
     updateSubscriptionOnServer(subscription);
 
     isSubscribed = true;
-
+    updateBtn();
   })
   .catch(function(err) {
     console.log('Failed to subscribe the user: ', err);
+    updateBtn();
+  });
+}
+
+function unsubscribeUser() {
+  swRegistration.pushManager.getSubscription()
+  .then(function(subscription) {
+    if (subscription) {
+      return subscription.unsubscribe();
+    }
+  })
+  .catch(function(error) {
+    console.log('Error unsubscribing', error);
+  })
+  .then(function() {
+    updateSubscriptionOnServer(null);
+
+    console.log('User is unsubscribed.');
+    isSubscribed = false;
+
+    updateBtn();
   });
 }
 
@@ -293,4 +315,21 @@ function updateSubscriptionOnServer(subscription) {
   } else {
     // subscriptionDetails.classList.add('is-invisible');
   }
+}
+
+function updateBtn() {
+  if (Notification.permission === 'denied') {
+    pushButton.checked = false;
+    pushButton.disabled = true;
+    updateSubscriptionOnServer(null);
+    return;
+  }
+
+  if (isSubscribed) {
+    pushButton.checked = true;
+  } else {
+    pushButton.checked = false;
+  }
+
+  pushButton.disabled = false;
 }
