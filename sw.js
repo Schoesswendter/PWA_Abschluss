@@ -77,3 +77,17 @@ self.addEventListener('message', event => {
       })
   })
 });
+
+self.addEventListener('push', function(event) {
+  console.log('[Service Worker] Push Received.');
+  console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
+
+  const title = 'Dad Jokes';
+  const options = {
+    body: 'Yay you should check out our new jokes.',
+    icon: 'images/icon.png',
+    badge: 'images/thumb-up.png'
+  };
+
+  event.waitUntil(self.registration.showNotification(title, options));
+});
