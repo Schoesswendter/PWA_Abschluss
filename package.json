@@ -13,6 +13,8 @@
   "author": "jane-doe",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-redirect-to-https": "^0.3.0",
+    "redirect-https": "^1.3.1"
   }
 }
